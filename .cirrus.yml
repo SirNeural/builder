@@ -1,0 +1,6 @@
+windows_container:
+  image: cirrusci/windowsservercore:2016
+
+test_task:
+  script:
+      - where git.exe

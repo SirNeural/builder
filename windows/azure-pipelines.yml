@@ -6,9 +6,9 @@ variables:
   pytorch.repo: pytorch
   build.linux.enabled: false
   build.cpu.enabled: false
-  build.cuda.enabled: true
+  build.cuda.enabled: false
   build.wheels.enabled: false
-  build.conda.enabled: true
+  build.conda.enabled: false
   use.sccache: 0
 
 jobs:
