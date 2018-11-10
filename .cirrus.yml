@@ -6,7 +6,7 @@ env:
   ARTIFACT_REPO_URL: ENCRYPTED[e0a62f411f12175e7bcd83db63e9837025d58e7ff8959848bede07405f8720a9731bae6a6ec7873a28e0580c698eb74b]
 
 conda_cpu_task:
-  container:
+  windows_container:
     image: cirrusci/windowsservercore:2016
     cpu: 4
     memory: 12
