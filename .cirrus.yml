@@ -1,6 +1,37 @@
-windows_container:
-  image: cirrusci/windowsservercore:2016
+env:
+  PYTORCH_BUILD_VERSION: 1.0
+  PYTORCH_BUILD_NUMBER: 1
+  PYTORCH_BRANCH: master
+  PYTORCH_REPO: pytorch
 
-test_task:
-  script:
-      - where git.exe
+conda_cpu_task:
+  container:
+    image: cirrusci/windowsservercore:2016
+    cpu: 4
+    memory: 12
+  env:
+    CUDA_VERSION: cpu
+    matrix:
+      DESIRED_PYTHON: 3.5
+      DESIRED_PYTHON: 3.6
+      DESIRED_PYTHON: 3.7
+    matrix:
+      PACKAGE: wheels
+      PACKAGE: conda
+  create_env_script:
+      - call windows/internal/vs_install.bat
+      - call windows/internal/env_fix.bat
+      - call windows/internal/7z_install.bat
+  conda_script: >
+      if "%PACKAGE%" == "conda" (
+        set "PYTORCH_FINAL_PACKAGE_DIR=%CD%\windows\output"
+        mkdir "%PYTORCH_FINAL_PACKAGE_DIR%"
+      )
+  build_script: >
+      if "%PACKAGE%" == "conda" (
+        sh ./conda/build_pytorch.sh
+      ) else (
+        call windows/build_pytorch.bat
+      )
+  publish_script:
+      - call windows/internal/publish.bat
