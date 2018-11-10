@@ -8,14 +8,14 @@ env:
 conda_cpu_task:
   windows_container:
     image: cirrusci/windowsservercore:2016
-    cpu: 4
-    memory: 12
+    cpu: 8
+    memory: 24
   env:
     CUDA_VERSION: cpu
     matrix:
       DESIRED_PYTHON: 3.5
       DESIRED_PYTHON: 3.6
-      DESIRED_PYTHON: 3.7
+      # DESIRED_PYTHON: 3.7
     matrix:
       PACKAGE: wheels
       PACKAGE: conda
