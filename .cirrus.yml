@@ -20,6 +20,7 @@ conda_cpu_task:
       PACKAGE: wheels
       PACKAGE: conda
   create_env_script:
+      - choco install curl
       - call windows/internal/vs_install.bat
       - call windows/internal/env_fix.bat
       - call windows/internal/7z_install.bat
