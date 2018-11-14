@@ -2,7 +2,7 @@
 variables:
   pytorch.build.version: 1.0
   pytorch.build.number: 1
-  pytorch.branch: dfa47677544a3d7704f9aae79c9dcd2ad9574976 # override the default of build.version
+  pytorch.branch: 96a01f82d14d9760d8793f8f4c716c77800109e6 # override the default of build.version
   pytorch.repo: pytorch
   build.linux.enabled: false
   build.cpu.enabled: true
