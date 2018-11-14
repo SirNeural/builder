@@ -24,7 +24,7 @@ IF ERRORLEVEL 1 (
     exit /b 1
 )
 
-cd pytorch_builder
+cd pytorch_windows_nightlies
 attrib -s -h -r . /s /d
 
 IF "%NO_BRANCH%" == "1" (
