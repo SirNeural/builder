@@ -5,7 +5,7 @@ variables:
   pytorch.branch: master # override the default of build.version
   pytorch.repo: pytorch
   build.linux.enabled: false
-  build.cpu.enabled: true
+  build.cpu.enabled: false
   build.cuda.enabled: true
   build.wheels.enabled: true
   build.conda.enabled: true
